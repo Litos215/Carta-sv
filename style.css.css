@@ -1,0 +1,78 @@
+/* Contenedor general */
+.container {
+  width: 300px;       /* Ajusta según tus necesidades */
+  margin: 50px auto;  /* Centra en la página */
+  text-align: center;
+}
+
+/* Corazón que funciona como “botón” */
+.heart {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+.heart:hover {
+  transform: scale(1.2);
+}
+
+/* Sobre principal */
+.envelope {
+  position: relative;
+  width: 300px;        /* Debe coincidir con el container */
+  height: 200px;
+  background: #f2f2f2; /* Color de fondo del sobre */
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  overflow: hidden;    /* Oculta cualquier desbordamiento */
+}
+
+/* Las “solapas” (flaps) superior e inferior */
+.flap {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background: #eaeaea;
+  transition: transform 1s;
+}
+
+/* Solapa superior */
+.top {
+  top: 0;
+  transform-origin: bottom;
+}
+
+/* Solapa inferior */
+.bottom {
+  bottom: 0;
+  transform-origin: top;
+}
+
+/* Contenido de la carta */
+.letter {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;             /* Comienza oculta */
+  transition: opacity 1s;
+  border: 2px solid #ccc; /* Opcional, para enmarcar la carta */
+  z-index: 1;             /* Asegura que quede por encima de las solapas */
+}
+
+/* Clase que se activa cuando abrimos la carta */
+.envelope.open .top {
+  transform: rotateX(-180deg); /* Anima la solapa superior hacia atrás */
+}
+
+.envelope.open .bottom {
+  transform: rotateX(180deg);  /* Anima la solapa inferior hacia adelante */
+}
+
+.envelope.open .letter {
+  opacity: 1;                  /* Muestra el contenido de la carta */
+}
