@@ -1,7 +1,7 @@
 /* Contenedor general */
 .container {
-  width: 300px;       /* Ajusta según tus necesidades */
-  margin: 50px auto;  /* Centra en la página */
+  width: 300px;       
+  margin: 50px auto;  
   text-align: center;
 }
 
@@ -19,12 +19,12 @@
 /* Sobre principal */
 .envelope {
   position: relative;
-  width: 300px;        /* Debe coincidir con el container */
+  width: 300px;
   height: 200px;
-  background: #f2f2f2; /* Color de fondo del sobre */
+  background: #f2f2f2;
   transform-style: preserve-3d;
   transition: transform 1s;
-  overflow: hidden;    /* Oculta cualquier desbordamiento */
+  overflow: hidden;
 }
 
 /* Las “solapas” (flaps) superior e inferior */
@@ -58,21 +58,29 @@
   background: #fff;
   padding: 10px;
   box-sizing: border-box;
-  opacity: 0;             /* Comienza oculta */
+  opacity: 0;             
   transition: opacity 1s;
-  border: 2px solid #ccc; /* Opcional, para enmarcar la carta */
-  z-index: 1;             /* Asegura que quede por encima de las solapas */
+  border: 2px solid #ccc; 
+  z-index: 1;             
+}
+
+/* Ajustes para la imagen dentro de la carta */
+.letter img {
+  max-width: 100%;
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px; /* Opcional: esquinas redondeadas */
 }
 
 /* Clase que se activa cuando abrimos la carta */
 .envelope.open .top {
-  transform: rotateX(-180deg); /* Anima la solapa superior hacia atrás */
+  transform: rotateX(-180deg); 
 }
 
 .envelope.open .bottom {
-  transform: rotateX(180deg);  /* Anima la solapa inferior hacia adelante */
+  transform: rotateX(180deg);
 }
 
 .envelope.open .letter {
-  opacity: 1;                  /* Muestra el contenido de la carta */
+  opacity: 1;
 }
